@@ -10,6 +10,9 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 20px;
+    max-width: 100%;
+    margin: auto;
 }
 
 /* เพิ่ม decoration elements */
@@ -281,5 +284,29 @@
 
     .pin-inputs::after {
         right: -30px;
+    }
+} 
+
+.countdown-display {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+}
+
+/* Media query สำหรับมือถือ */
+@media screen and (max-width: 768px) {
+    .countdown-container {
+        padding: 10px;
+    }
+    
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
     }
 } 
