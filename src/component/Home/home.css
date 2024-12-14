@@ -1,0 +1,221 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffe5e5 0%, #fff0f5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.text-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 4.5em;
+    color: #ff69b4;
+    margin-bottom: 30px;
+    letter-spacing: 8px;
+}
+
+.wave-text {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+    margin: 0 2px;
+}
+
+.image-container {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    margin: 20px 0;
+}
+
+.center-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+}
+
+.button-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.bt-yes, .bt-no {
+    padding: 15px 50px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bt-yes {
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.bt-no {
+    background: linear-gradient(45deg, #ff8da1, #ffc0cb);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 141, 161, 0.4);
+}
+
+.bt-yes:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+}
+
+.bt-no:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 141, 161, 0.6);
+}
+
+/* Decorative elements */
+.home::before,
+.home::after {
+    content: '🌸';
+    position: absolute;
+    font-size: 40px;
+    animation: floatFlower 4s ease-in-out infinite;
+}
+
+.home::before {
+    top: 10%;
+    left: 10%;
+}
+
+.home::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+@keyframes floatFlower {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(10px, -10px) rotate(15deg);
+    }
+}
+
+/* Button click effect */
+.bt-yes:active,
+.bt-no:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        letter-spacing: 4px;
+    }
+
+    .image-container {
+        max-width: 300px;
+    }
+
+    .button-container {
+        gap: 20px;
+    }
+
+    .bt-yes, .bt-no {
+        padding: 12px 30px;
+        font-size: 1.2em;
+    }
+}
+
+/* Additional decorative elements */
+.button-container::after {
+    content: '💕';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.text-container {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff69b4;
+    margin-bottom: 40px;
+}
+
+.wave-text {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    40% {
+        transform: translateY(0);
+    }
+}

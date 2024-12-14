@@ -1,0 +1,285 @@
+.countdown-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffe5e5 0%, #fff0f5 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* เพิ่ม decoration elements */
+.countdown-container::before,
+.countdown-container::after {
+    content: '🌸';
+    position: fixed;
+    font-size: 40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.countdown-container::before {
+    top: 10%;
+    left: 10%;
+}
+
+.countdown-container::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.heart-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: pulse 1s ease-in-out infinite;
+    margin-bottom: 30px;
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff69b4;
+    transform: rotate(45deg);
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: -50px;
+}
+
+.heart:after {
+    top: -50px;
+}
+
+.countdown-number {
+    font-size: 8em;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-weight: bold;
+    animation: fadeInOut 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heart-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .heart {
+        width: 75px;
+        height: 75px;
+        margin-top: -37.5px;
+        margin-left: -37.5px;
+    }
+
+    .heart:before,
+    .heart:after {
+        width: 75px;
+        height: 75px;
+    }
+
+    .heart:before {
+        left: -37.5px;
+    }
+
+    .heart:after {
+        top: -37.5px;
+    }
+
+    .countdown-number {
+        font-size: 6em;
+    }
+} 
+
+.pin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+
+.pin-container::before {
+    content: '💝';
+    position: absolute;
+    top: -30px;
+    font-size: 40px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.pin-container h2 {
+    font-size: 2.5em;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+
+.pin-inputs {
+    display: flex;
+    gap: 15px;
+    position: relative;
+}
+
+.pin-inputs::before,
+.pin-inputs::after {
+    content: '🎀';
+    position: absolute;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pin-inputs::before {
+    left: -40px;
+}
+
+.pin-inputs::after {
+    right: -40px;
+}
+
+.pin-inputs input {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #ffb6c1;
+    border-radius: 15px;
+    font-size: 2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff69b4;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+}
+
+.pin-inputs input:focus {
+    outline: none;
+    border-color: #ff1493;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    transform: scale(1.05);
+    background: white;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Decorative elements */
+.floating-hearts {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    animation: floatUpAndFade 4s ease-in-out infinite;
+}
+
+@keyframes floatUpAndFade {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pin-container {
+        padding: 30px;
+    }
+
+    .pin-container h2 {
+        font-size: 2em;
+    }
+
+    .pin-inputs input {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5em;
+    }
+
+    .pin-inputs::before,
+    .pin-inputs::after {
+        font-size: 20px;
+    }
+
+    .pin-inputs::before {
+        left: -30px;
+    }
+
+    .pin-inputs::after {
+        right: -30px;
+    }
+} 
