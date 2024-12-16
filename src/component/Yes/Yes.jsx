@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Yes.css';
 
+const API_URL = process.env.REACT_APP_API_URL || 'https://backend-q7rj.onrender.com';
+
 function Yes() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -64,7 +66,7 @@ function Yes() {
       try {
         console.log('กำลังส่งข้อมูล:', formData); // เพิ่ม log
 
-        const response = await fetch('http://localhost:3001/send-to-line', {
+        const response = await fetch(`${API_URL}/send-to-line`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
