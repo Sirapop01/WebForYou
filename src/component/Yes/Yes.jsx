@@ -9,7 +9,11 @@ function Yes() {
     "ชื่อเล่น": '',
     "อายุ": '',
     "เบอร์โทรศัพท์": '',
-    "มีอะไรอยากจะบอกกันไหม": ''
+    "สัตว์ที่ชอบ": '',
+    "ดอกไม้ที่ชอบ": '',
+    "สีที่ชอบ": '',
+    "ถ้าได้ไปเที่ยวด้วยกัน อยากไปที่ไหน": '',
+    "มีอะไรอยากบอกกันไหม": ''
   });
 
   const [errors, setErrors] = useState({});
@@ -53,31 +57,68 @@ function Yes() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-      navigate('/pincheck');
+      try {
+        console.log('กำลังส่งข้อมูล:', formData); // เพิ่ม log
+
+        const response = await fetch('http://localhost:3001/send-to-line', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ formData })
+        });
+
+        const result = await response.json(); // เพิ่มการอ่านผลลัพธ์
+        console.log('ผลการส่ง:', result); // เพิ่ม log
+
+        if (response.ok) {
+          alert('ส่งข้อมูลสำเร็จ!');
+          navigate('/pincheck');
+        } else {
+          alert('เกิดข้อผิดพลาด: ' + result.error);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('เกิดข้อผิดพลาดในการส่งข้อมูล: ' + error.message);
+      }
     }
   };
 
   return (
     <div className="yes-page">
       <div className="form-container">
-        <h1>Personal Information 💕</h1>
+        <h1>Personal Information <span className="heart-icon">💕</span></h1>
         <form onSubmit={handleSubmit}>
           {Object.keys(formData).map((fieldName) => (
             <div className="form-group" key={fieldName}>
               <label>{fieldName}:</label>
-              <input
-                type={fieldName === "อายุ" ? "number" : 
-                      fieldName === "เบอร์โทรศัพท์" ? "tel" : "text"}
-                name={fieldName}
-                value={formData[fieldName]}
-                onChange={handleChange}
-                placeholder={`กรุณากรอก${fieldName}`}
-                className={errors[fieldName] ? 'error' : ''}
-              />
+              {fieldName === "มีอะไรที่อยากให้พี่รู้เกี่ยวกับหนูอีกไหม" ? (
+                <textarea
+                  name={fieldName}
+                  value={formData[fieldName]}
+                  onChange={handleChange}
+                  placeholder={`กรุณากรอก${fieldName}`}
+                  className={errors[fieldName] ? 'error' : ''}
+                  rows="4"
+                />
+              ) : (
+                <input
+                  type={
+                    fieldName === "อายุ" ? "number" : 
+                    fieldName === "เบอร์โทรศัพท์" ? "tel" : 
+                    "text"
+                  }
+                  name={fieldName}
+                  value={formData[fieldName]}
+                  onChange={handleChange}
+                  placeholder={`กรุณากรอก${fieldName}`}
+                  className={errors[fieldName] ? 'error' : ''}
+                />
+              )}
               {errors[fieldName] && (
                 <div className="error-message">{errors[fieldName]}</div>
               )}

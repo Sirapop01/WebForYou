@@ -1,169 +1,105 @@
+/* พื้นหลังหลักของหน้า */
 .yes-page {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ffe5e5 0%, #fff0f5 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #FFF0F5;
 }
 
+/* คอนเทนเนอร์หลักของฟอร์ม */
 .form-container {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
-    width: 100%;
-    max-width: 500px;
-    position: relative;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 60px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.2);
 }
 
-.form-container::before {
-    content: '💕';
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    animation: float 3s ease-in-out infinite;
+/* หัวข้อฟอร์ม */
+.form-container h1 {
+  font-family: 'Mali', cursive;
+  font-size: 24px;
+  color: #FF69B4;
+  text-align: center;
+  margin-bottom: 25px;
+  white-space: nowrap;
 }
 
-h1 {
-    color: #ff69b4;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.1);
-}
-
+/* กลุ่มของแต่ละฟิลด์ในฟอร์ม */
 .form-group {
-    margin-bottom: 25px;
-    position: relative;
+  margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ff69b4;
-    font-weight: 500;
-    font-size: 0.95em;
+/* ลาเบลของแต่ละฟิลด์ */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Mali', cursive;
+  color: #FF69B4;
+  font-size: 16px;
 }
 
-input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #ffb6c1;
-    border-radius: 15px;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    background: white;
+/* สไตล์ร่วมสำหรับ input และ textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #FFB6C1;
+  border-radius: 50px;
+  font-family: 'Mali', cursive;
+  font-size: 14px;
+  background-color: transparent;
+  color: #FF69B4;
+  transition: all 0.3s ease;
 }
 
-input:focus {
-    outline: none;
-    border-color: #ff69b4;
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+/* สไตล์ placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #FFB6C1;
+  opacity: 0.8;
 }
 
-input::placeholder {
-    color: #ffb6c1;
+/* สไตล์เมื่อ focus */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FF69B4;
+  box-shadow: 0 0 0 1px #FFB6C1;
 }
 
-.error {
-    border-color: #ff4444 !important;
+/* สไตล์เฉพาะสำหรับ textarea */
+.form-group textarea {
+  min-height: 100px;
+  resize: none;
+  border-radius: 25px;
 }
 
-.error-message {
-    color: #ff4444;
-    font-size: 0.8em;
-    margin-top: 5px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.error-message::before {
-    content: '⚠️';
-    margin-right: 5px;
-}
-
+/* ปุ่ม submit */
 .submit-btn {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
-    border: none;
-    border-radius: 15px;
-    color: white;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+  width: 100%;
+  padding: 12px;
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Mali', cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
+/* เอฟเฟกต์ hover ของปุ่ม */
 .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  background-color: #FF1493;
+  transform: translateY(-2px);
 }
 
-.submit-btn:active {
-    transform: translateY(0);
-}
-
-/* Animations */
-@keyframes float {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-}
-
-/* Decorative elements */
-.form-container::after {
-    content: '🌸';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    font-size: 30px;
-    animation: float 3s ease-in-out infinite;
-    animation-delay: 1s;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .form-container {
-        padding: 30px 20px;
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    input {
-        padding: 10px 12px;
-    }
-
-    .submit-btn {
-        padding: 12px;
-    }
-}
-
-/* Input focus animation */
-input:focus {
-    animation: pulse 1s ease-in-out;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.02);
-    }
-    100% {
-        transform: scale(1);
-    }
+/* ข้อความ error */
+.error-message {
+  color: #ff4444;
+  font-size: 12px;
+  margin-top: 5px;
+  padding-left: 20px;
 }

@@ -83,7 +83,7 @@ function PinCheck() {
         <div className="content-wrapper">
           <h1 className="title">พร้อมดูความน่ารักรึยัง? 💕</h1>
           <div className="pin-container">
-            <h2>Enter PIN 🎀</h2>
+            <h2>เดารหัสอีกรอบอันนี้ยากมากกก 🎀</h2>
             <div className="pin-inputs">
               {pin.map((digit, index) => (
                 <input

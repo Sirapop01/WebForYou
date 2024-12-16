@@ -84,7 +84,7 @@ function Countdown() {
       ) : (
         <>
           <div className="pin-container">
-            <h2>รหัสผ่าน คือ วันที่พี่คิดว่าดีมากที่มีวันนั้น 💕</h2>
+            <h2>รหัสผ่าน คือ วันที่คนน่ารักที่สุดในโลกเกิดมา 💕</h2>
             <div className="pin-inputs">
               {pin.map((digit, index) => (
                 <input
